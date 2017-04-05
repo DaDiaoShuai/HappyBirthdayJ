@@ -11,12 +11,18 @@
 <!-- <meta name="keywords" content="canvas,3D,perspective,texturing,gallery"> -->
 <link rel="stylesheet" href="./static/css/slider-wb.css">
 <link rel="shortcut icon" href="http://os.zheng0716.com/static/image/favicon.ico"/>
-<title>3D相册</title>
+<title>Juno.</title>
 <style>
+div,p,span,ul,ol,li,h1,h2,h3,h4,h5,h6 {
+    margin:0;
+    padding:0;
+}
+
 html {
 	overflow: hidden;
 	-ms-touch-action: none;
 	-ms-content-zooming: none;
+    cursor: crosshair;
 }
 body {
 	position: absolute;
@@ -37,6 +43,54 @@ body {
     text-align:center;
     color:orange;
     text-shadow: #333 1px 1px 1px;
+}
+
+#more {
+    float: right;
+    position: relative;
+}
+
+#more div{
+    background-color: #f40;
+    color: #fff;
+    font-size:18px;
+    padding: 8px 18px;
+    margin:8px 10px 0 0;
+    border:1px solid rgba(100,100,100,.2);
+    border-radius: 5px;
+}
+
+#more:hover#more>div:before{
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*padding:8p;*/
+    background-color: rgba(255,255,255,.2);
+}
+ul li{
+    list-style: none;
+}
+.article-list {
+    display: none;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+.article-list li {
+    padding:5px 8px;
+    width: 4.5em;
+    /*background-color: #ccc;*/
+}
+.article-list li a {
+    text-decoration: none;
+    color:#444;
+    font-size: 16px;
+    font-weight: bold;
 }
 </style>
 <script src="./static/js/ge1doot.js"></script>
@@ -63,6 +117,16 @@ body {
 </head>
 <body>
 <audio id="impress" src="./static/audio/2079912_54316_l.mp3" autoplay="autoplay" loop="loop" controls>背景音乐</audio>
+<div id="more">
+    <div class="juno" >Juno+</div>
+    <ul class="article-list">
+        <li><a href="./static/article/20170405.html" target="_self">梦</a></li>
+        <li><a href="javascript:;" target="_self">待续...</a></li>
+        <li><a href="javascript:;" target="_self">待续...</a></li>
+        <li><a href="javascript:;" target="_self">待续...</a></li>
+        <li><a href="javascript:;" target="_self">待续...</a></li>
+    </ul>
+</div>
  <h1 class="someWords">I CAN REMEMBER LOTS OF PEOPLE,JUST CANNOT FORGET ONLY ONE PERSON</h1>
 <canvas id="canvas">你的浏览器不支持HTML5画布技术，请使用谷歌浏览器。</canvas>
 <!-- 3d-album1 -->
@@ -72,6 +136,13 @@ body {
      data-ad-slot="3393634591"></ins>
 </div>
 <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    $('#more').hover(function(){
+        $('.article-list').show();
+    },function(){
+        $('.article-list').hide();
+    })
+</script>
 </body>
 </html>
 <!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
