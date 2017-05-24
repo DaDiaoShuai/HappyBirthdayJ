@@ -155,9 +155,9 @@
     <script src="./static/js/jquery.min.js"></script>
     <script>
         $('#more').hover(function() {
-            $('.article-list').slideDown();
+            $('.article-list').stop().slideDown();
         }, function() {
-            $('.article-list').slideUp();
+            $('.article-list').stop().slideUp();
         })
     </script>
 </body>
