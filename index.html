@@ -1,149 +1,167 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="HandheldFriendly" content="true">
-<meta name="msvalidate.01" content="B6C713C1F4E407129EDEF7810A8B9BCB" />
-<!-- <meta name="description" content="修改自http://www.webhek.com/misc-res/3d-album/"> -->
-<!-- <meta name="keywords" content="canvas,3D,perspective,texturing,gallery"> -->
-<link rel="stylesheet" href="./static/css/slider-wb.css">
-<link rel="shortcut icon" href="http://os.zheng0716.com/static/image/favicon.ico"/>
-<title>Juno.</title>
-<style>
-div,p,span,ul,ol,li,h1,h2,h3,h4,h5,h6 {
-    margin:0;
-    padding:0;
-}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="HandheldFriendly" content="true">
+    <meta name="msvalidate.01" content="B6C713C1F4E407129EDEF7810A8B9BCB" />
+    <!-- <meta name="description" content="修改自http://www.webhek.com/misc-res/3d-album/"> -->
+    <!-- <meta name="keywords" content="canvas,3D,perspective,texturing,gallery"> -->
+    <link rel="stylesheet" href="./static/css/slider-wb.css">
+    <link rel="shortcut icon" href="http://os.zheng0716.com/static/image/favicon.ico" />
+    <title>Juno.</title>
+    <style>
+        div,
+        p,
+        span,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            overflow: auto;
+            -ms-touch-action: none;
+            -ms-content-zooming: none;
+            cursor: crosshair;
+        }
+        
+        body {
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+        
+        #canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+        }
+        
+        .someWords {
+            margin: 50px auto;
+            text-align: center;
+            color: orange;
+            text-shadow: #333 1px 1px 1px;
+        }
+        
+        #more {
+            /*float: right;*/
+            position: fixed;
+            top: 26px;
+            left: 10px;
+            z-index: 9;
+        }
+        
+        #more div {
+            background-color: #f40;
+            color: #fff;
+            font-size: 18px;
+            padding: 8px 18px;
+            margin: 8px 10px 0 0;
+            border: 1px solid rgba(100, 100, 100, .2);
+            border-radius: 5px;
+        }
+        
+        #more:hover#more>div:before {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, .2);
+        }
+        
+        ul li {
+            list-style: none;
+        }
+        
+        .article-list {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+        
+        .article-list li {
+            padding: 5px 8px;
+            width: 4.5em;
+        }
+        
+        .article-list li a {
+            text-decoration: none;
+            color: #444;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="./static/js/ge1doot.js"></script>
+    <script src="./static/js/loadAlbum.js"></script>
+    <script>
+        loadAlbum([
+            "./static/image/1.jpg",
+            "./static/image/2.jpg",
+            "./static/image/3.jpg",
 
-html {
-	overflow: hidden;
-	-ms-touch-action: none;
-	-ms-content-zooming: none;
-    cursor: crosshair;
-}
-body {
-	position: absolute;
-	margin: 0px;
-	padding: 0px;
-	background: #fff;
-	width: 100%;
-	height: 100%;
-}
-#canvas {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-}
-.someWords {
-    margin:50px auto;
-    text-align:center;
-    color:orange;
-    text-shadow: #333 1px 1px 1px;
-}
+            "./static/image/4.jpg",
+            "./static/image/5.jpg",
+            "./static/image/6.jpg",
 
-#more {
-    float: right;
-    position: relative;
-}
+            "./static/image/7.jpg",
+            "./static/image/21.jpg",
+            "./static/image/9.jpg",
 
-#more div{
-    background-color: #f40;
-    color: #fff;
-    font-size:18px;
-    padding: 8px 18px;
-    margin:8px 10px 0 0;
-    border:1px solid rgba(100,100,100,.2);
-    border-radius: 5px;
-}
-
-#more:hover#more>div:before{
-    display: block;
-    content: '';
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /*padding:8p;*/
-    background-color: rgba(255,255,255,.2);
-}
-ul li{
-    list-style: none;
-}
-.article-list {
-    display: none;
-    position: absolute;
-    top: 50px;
-    left: 0;
-}
-
-.article-list li {
-    padding:5px 8px;
-    width: 4.5em;
-    /*background-color: #ccc;*/
-}
-.article-list li a {
-    text-decoration: none;
-    color:#444;
-    font-size: 16px;
-    font-weight: bold;
-}
-</style>
-<script src="./static/js/ge1doot.js"></script>
-<script src="./static/js/loadAlbum.js"></script>
-<script>
-    loadAlbum([
-        "./static/image/1.jpg",
-        "./static/image/2.jpg",
-        "./static/image/3.jpg",
-
-        "./static/image/4.jpg",
-        "./static/image/5.jpg",
-        "./static/image/6.jpg",
-
-        "./static/image/7.jpg",
-        "./static/image/21.jpg",
-        "./static/image/9.jpg",
-
-        "./static/image/10.jpg",
-        "./static/image/11.jpg",
-        "./static/image/12.jpg"
-    ]);
-</script>
+            "./static/image/10.jpg",
+            "./static/image/11.jpg",
+            "./static/image/12.jpg"
+        ]);
+    </script>
 </head>
-<body>
-<audio id="impress" src="./static/audio/2079912_54316_l.mp3" autoplay="autoplay" loop="loop" controls>背景音乐</audio>
-<div id="more">
-    <div class="juno" >Juno+</div>
-    <ul class="article-list">
-        <li><a href="./static/article/20170405.html" target="_self">梦</a></li>
-        <li><a href="javascript:;" target="_self">待续...</a></li>
-        <li><a href="javascript:;" target="_self">待续...</a></li>
-        <li><a href="javascript:;" target="_self">待续...</a></li>
-        <li><a href="javascript:;" target="_self">待续...</a></li>
-    </ul>
-</div>
- <h1 class="someWords">I CAN REMEMBER LOTS OF PEOPLE,JUST CANNOT FORGET ONLY ONE PERSON</h1>
-<canvas id="canvas">你的浏览器不支持HTML5画布技术，请使用谷歌浏览器。</canvas>
-<!-- 3d-album1 -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:728px;height:15px"
-     data-ad-client="ca-pub-9195052014444206"
-     data-ad-slot="3393634591"></ins>
-</div>
-<script src="./static/js/jquery.min.js"></script>
-<script>
-    $('#more').hover(function(){
-        $('.article-list').show();
-    },function(){
-        $('.article-list').hide();
-    })
-</script>
+
+<body class="scrollbar">
+    <div>
+        <audio id="impress" src="./static/audio/2079912_54316_l.mp3" autoplay="autoplay" loop="loop" controls>背景音乐</audio>
+        <div id="more">
+            <div class="juno">Juno+</div>
+            <ul class="article-list">
+                <li><a href="./static/article/20170405.html" target="_self" title="梦">梦</a></li>
+                <li><a href="./static/article/20170524.html" target="_self" title="About Time">About...</a></li>
+                <li><a href="javascript:;" target="_self">待续...</a></li>
+                <li><a href="javascript:;" target="_self">待续...</a></li>
+                <li><a href="javascript:;" target="_self">待续...</a></li>
+            </ul>
+        </div>
+        <h1 class="someWords">I CAN REMEMBER LOTS OF PEOPLE,JUST CANNOT FORGET ONLY ONE PERSON</h1>
+        <canvas id="canvas">你的浏览器不支持HTML5画布技术，请使用谷歌浏览器。</canvas>
+        <!-- 3d-album1 -->
+        <ins class="adsbygoogle" style="display:inline-block;width:728px;height:15px" data-ad-client="ca-pub-9195052014444206" data-ad-slot="3393634591"></ins>
+    </div>
+    <script src="./static/js/jquery.min.js"></script>
+    <script>
+        $('#more').hover(function() {
+            $('.article-list').slideDown();
+        }, function() {
+            $('.article-list').slideUp();
+        })
+    </script>
 </body>
+
 </html>
 <!-- Performance optimized by W3 Total Cache. Learn more: http://www.w3-edge.com/wordpress-plugins/
 
