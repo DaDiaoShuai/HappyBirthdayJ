@@ -12,14 +12,15 @@ body {
 
 #main h1 {
     color: #444;
-    text-align: center;
+    /*text-align: center;*/
+    text-indent: 2rem;
 }
 
 #main p {
     color: #555;
     font-size: 18px;
     font-weight: bold;
-    text-indent: 2em;
+    text-indent: 2rem;
 }
 
 #back {
