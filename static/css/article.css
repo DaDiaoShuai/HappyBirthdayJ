@@ -42,6 +42,10 @@ body {
     box-shadow: 0 1px 60px #000;
 }
 
+.the-day {
+    text-align: right;
+}
+
 
 /*****滚动条****/
 

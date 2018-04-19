@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>望着你</title>
+    <link rel="stylesheet" href="../css/article.css">
+    <link rel="shortcut icon" href="../../favicon.ico" />
+</head>
+
+<body class="scrollbar">
+    <div id="back">back</div>
+    <div id="main">
+        <h1>望着你</h1>
+
+        <!-- <p class="pics">
+            <img src="./20180330/1.png" width="100%" alt="我想你">
+        </p> -->
+
+        <div id="imgs">
+        </div>
+
+        <p class="the-day">
+            2018.03.30
+        </p>
+    </div>
+    <script src="../js/article.js"></script>
+    <script src="../js/jquery.min.js"></script>
+    <script>
+        window.onload = function () {
+            function renderHtml(str) {
+                
+                var htmlStr = ''
+                for (var i = 1; i < 13; i++) {
+                    htmlStr += `<p class="pics"><img src="./20180330/${i}.png" width="100%" alt=""></p>`
+                }
+                $('#imgs').html(htmlStr)
+            }
+
+            renderHtml()
+        }
+    </script>
+</body>
+
+</html>
